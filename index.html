@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="stylelogin.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap">
+  <script src="init.js"></script>
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+  <title>PhoneBook</title>
+</head>
+<body>
+ <header>
+    <div class="kas-logo">
+        <img src="assets/logo.png" alt="3kasIT Logo">
+        <span class="kas-sign">3kasIT</span>
+    </div>
+
+    <div class="central-menu">
+      <a href="calendar.html" id="calendar">Календарь</a>
+      <a href="adminpanel.html" id="implementers">Сотрудники</a>
+      <a href="docs.html" id="docs">Документы</a>
+      <a href="chast.html" id="chats">Сообщения</a>
+    </div>
+
+    <div class="user-profile">
+      <img src="assets/avatar.png" alt="User Avatar">
+      <span class="username">Рябов Денис</span>
+    </div>
+ </header>
+  
+  <div class="content">
+    <div class="upper-menu"
+        <h1 id="apparat">Аппарат суда</h1>
+        <div class="searching">
+          <img src="assets/search.svg" alt="search">
+          <input id="search" type="text" placeholder="Поиск">
+        </div>
+        <button class="add-emp" onclick="openLoginWindow()">
+          <img src="assets/Add_Plus.svg" alt="add">
+          Добавить
+        </button>
+    </div>
+
+    <div class="online-sort">
+      <div id="emp-all" onclick = "allEmployers()">Все 194</div>
+      <div id="emp-online" onclick = "onlineEmployers()">В сети 111 </div>
+      <div id="emp-afk" onclick = "awayEmployers()">Отошел 55</div>
+      <div id="emp-offline" onclick = "offlineEmployers()">Не в сети 28</div>
+    </div>
+
+  </div>
+
+  <div class="desk">
+    <div class="employers">
+      <span id="staff-label">Сотрудников</span><span id="staff-count">194</span>
+    </div>
+    <table>
+      <thead>
+          <tr>
+              <th>ТЕЛЕФОН</th>
+              <th>ВНЕШНИЙ НОМЕР</th>
+              <th>НОМЕР ВТС</th>
+              <th>СОТРУДНИК</th>
+              <th>ДОЛЖНОСТЬ</th>
+              <th>ОТДЕЛ</th>
+              <th>КАБИНЕТ</th>
+          </tr>
+      </thead>
+      <tbody id="tableBody">
+          <tr>
+              <td style="color: rgb(114, 107, 234);"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><div class="status"></div></td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="footer-info">
+      <span id="list-of-pages">1-10 из 194</span>
+      <button class="next-button prev-next-button-active" onclick="nextPage()">
+        <img src="assets/arrow_right.svg" class="arrow-right" />
+          Вперед
+      </button>
+      <button class="prev-button prev-next-button-inactive" onclick="prevPage()">
+        <img src="assets/arrow_left.svg" class="arrow-left" />
+          Назад
+      </button>
+    </div>
+  </div>
+
+  <div id="overlay" style="display: none;"></div>
+
+  <div id="login-window" style="display: none;">
+    <div class="login-container">
+      <div class="close-button" onclick="closeLoginWindow()">×</div>
+      <h2>Добро пожаловать</h2>
+      <form>
+        <label for="username">Логин:</label>
+        <input type="text" id="username" name="username" placeholder="Введите логин">
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль">
+        <span id="error-message"></span>
+        <button id="login-btn" onclick="validateLogin(event)">Войти</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+body {
+  background-color: #F5F5FA; /* Add a light gray background */
+  font-family: 'Inter', sans-serif;
+  margin: 0; /* Remove the default margin */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff; /* optional */
+  border-bottom: 1px solid #ccc; /* optional */
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('inter.woff2') format('woff2'),
+       url('inter.woff') format('woff'),
+       url('inter.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+
+.kas-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.kas-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.kas-sign {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 12px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Add this to push the user profile to the right */
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  height: 50px;
+}
+
+.header-logo {
+  width: 30px; /* Set the width of the logo */
+  height: 30px; /* Set the height of the logo */
+  margin-right: 10px; /* Add some space between the logo and text */
+}
+
+.header-logo svg {
+  width: 100%; /* Make the SVG file fit the logo container */
+  height: 100%; /* Make the SVG file fit the logo container */
+}
+
+.header-text {
+  font-size: 24px; /* Set the font size for the text */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Remove the logo styles that were previously set */
+.header-logo {
+  font-size: 0; /* Remove the font size */
+  font-weight: normal; /* Remove the font weight */
+  margin-right: 0; /* Remove the right margin */
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.header-user img {
+  width: 30px; /* Set the width of the avatar */
+  height: 30px; /* Set the height of the avatar */
+  border-radius: 50%; /* Make the avatar circular */
+  object-fit: cover; /* Ensure the avatar is fully visible */
+  margin-left: 10px; /* Add some space between the name and avatar */
+}
+
+
+.central-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 0px; /* Remove the padding */
+  border-bottom: none; /* Remove the bottom border */
+  font-size: 16px; /* Add this to set a uniform font size */
+  font-weight: 500; /* Add this to set a uniform font weight */
+  height: 80px; /* Установите высоту для .central-menu */
+}
+
+.central-menu a {
+  color: #3B424A;
+  text-decoration: none;
+  margin: 0px 0px; /* Reduce the margin between links */
+  background-color: #fff; /* Add a white background color to create a block effect */
+  padding: 5px; /* Add some padding to create a block effect */
+  display: flex; /* Add this to make the anchor element a flex container */
+  flex-direction: column; /* Add this to make the anchor element stretch to the full height */
+  height: 100%; /* Add this to make the anchor element fill the entire height of the parent element */
+  width: 140px;
+  justify-content: center; /* Add this to center the text vertically */
+  align-items: center; /* Add this to center the text horizontally */
+}
+
+.central-menu a:hover {
+  color: #337ab7;
+  background-color: #f7f7f7; /* Change the background color to light gray on hover */
+  height:80px;
+  width: 140px; /* Добавьте это свойство и задайте ему значение */
+}
+
+.central-menu a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #337ab7;
+}
+
+.central-menu a.active {
+  position: relative;
+}
+
+#calendar, #docs, #chats, #implementers {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.imp-button {
+display: flex;
+
+padding-left: 40px; /* increase the padding-left */
+padding-right: 30px; /* add padding-right to make the button wider */
+color: #7364FF;
+border-radius: 30px; /* increase the border radius */
+background: #FCFCFE;
+padding: 10px; /* add some padding to the button */
+}
+
+.content {
+  padding: 50px; /* reduce the padding to move the content up */
+  margin: 0 -10px;
+}
+
+.upper-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#apparat {
+  color: #1E293B;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 125% */
+}
+
+.searching {
+  display: flex;
+
+  width: 300px;
+  padding: 12px 20px 14px 12px;
+  align-items: center;
+  margin-left: auto;
+  gap: 5.94px;
+  margin-right: 12px;
+
+  border-radius: 9px;
+  border: 1px solid var(--Stroke, #E2E8F0);
+  background: #FFF;
+  box-shadow: 2px 4px 10px 0px rgba(180, 191, 205, 0.12);
+}
+
+#search {
+  flex: 1; /* added to make the input field take up the available space */
+  padding: 0 10px; /* added some padding for better appearance */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  border: none; /* removed border to make it look like a part of the container */
+  outline: none; /* removed outline to make it look like a part of the container */
+}
+
+.add-emp {
+  /* Buttons */
+border: none;
+width: 137px;
+height: 52px;
+left: 1739px;
+top: 164px;
+
+/* Автолейаут */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 4;
+padding: 14px 18px 14px 12px;
+
+color: rgb(255, 255, 255);
+font-family: Inter;
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: 0%;
+text-align: left;
+
+
+border-radius: 9px;
+background: rgb(115, 100, 255);
+}
+
+.online-sort {
+  display: inline-flex;
+  flex-warp: nowrap;
+  margin-top: 20px; /* add some margin top to separate from upper menu */
+  justify-content: space-between;
+  gap: 4px;
+}
+
+#emp-all, #emp-online, #emp-afk, #emp-offline {
+  margin-right: 12px; /* increase the margin-right to 20px */
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+
+  display: flex;
+  padding: 8px 20px; /* increase padding top and bottom to 15px */
+  align-items: center; /* change flex-start to center */
+  justify-content: center; /* add justify-content to center horizontally */
+
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  background: #FFF;
+  height: 32px; /* add height property to set the height of the buttons */
+}
+
+/* Add hover effect */
+#emp-all:hover, #emp-online:hover, #emp-afk:hover, #emp-offline:hover {
+  background: #EBEBEB; /* slightly darker than the original background */
+}
+
+/* Add active effect */
+#emp-all:active, #emp-online:active, #emp-afk:active, #emp-offline:active {
+  background: #7B7DFF; /* purple color */
+  color: #FFF;
+}
+
+.desk {
+  margin-top: 20px;
+  position: absolute;
+  width: 1740px;
+  height: 960px;
+  margin-left: 40px;
+  margin-right: 40px;
+  top: 260px;
+
+  border-radius: 12px;
+
+  background: rgb(255, 255, 255);
+}
+
+#staff-label, .staff-count {
+  display: inline;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+#staff-label {
+  font-weight: bold; /* optional */
+
+  color: #1E293B;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin-right: 2px; /* add this */
+}
+
+#staff-count {
+  font-size: 18px; /* optional */
+
+  color: #4D515A;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.employers {
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-left: 22px;
+
+  font-family: 'Inter', sans-serif;
+  display: flex; /* add this */
+  align-items: center; /* add this */
+  gap: 6px;
+}
+
+/* TABLE DESK */
+table {
+  margin-top: 30px; /* add this */
+  top: 400px; /* add this */
+
+  padding: 80px 80px 80px 80px;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+th {
+
+  width: 919px;
+  padding: 80px 718px 0px 50px;
+  gap: 113px;
+
+  background-color: #F8FAFC;
+  font-size: 12px;
+  font-weight: 600; /* Medium */
+  color: #4D515A;
+
+}
+
+th, td {
+  border: 1px solid #ddd;
+
+  border-left: none;
+  border-right: none;
+
+  padding: 12px;
+  padding-left: 28px;
+  text-align: left;
+}
+
+td {
+  padding: 20px 20px;
+  padding-left: 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1E293B;
+} 
+
+.number {
+  color: rgb(114, 107, 234);
+}
+
+.status-online {
+  position: static;
+  width: 102px;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10;
+  padding: 3px 16px 3px 16px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 10px 0px;
+  border-radius: 20px;
+
+  color: #059691;
+  background: rgba(209, 250, 229, 0.5);
+  border-radius: 20px;
+
+  font-family: Inter;
+  font-size: 16px; /* increased font size to make the button larger */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.status-away {
+  position: static;
+  width: 102px;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10;
+  padding: 3px 16px 3px 16px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 10px 0px;
+  border-radius: 20px;
+
+  color: #E07706;
+  background: #FEF9E3;
+  border-radius: 20px;
+
+  font-family: Inter;
+  font-size: 16px; /* increased font size to make the button larger */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.status-offline {
+  position: static;
+  width: 102px;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10;
+  padding: 3px 16px 3px 16px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 10px 0px;
+  border-radius: 20px;
+
+  color: #E11D48;
+  background: #FFF1F2;
+  border-radius: 20px;
+
+  font-family: Inter;
+  font-size: 16px; /* increased font size to make the button larger */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.footer-info {
+  display: flex;
+}
+
+#elements, #list-of-pages {
+  font-family: Inter;
+  font-weight: 500;
+  color: rgb(100, 116, 139)
+}
+
+#elements {
+  position: absolute;
+  width: 117px;
+  height: 52px;
+  left: 1300px;
+  top: 700px;
+}
+
+#list-of-pages {
+  position: absolute;
+  width: 117px;
+  height: 52px;
+  left: 1340px;
+  top: 770px;
+}
+
+.next-button {
+  position: absolute;
+  width: 117px;
+  height: 52px;
+  left: 1580px;
+  top: 750px;
+
+  /* Автолейаут */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4;
+  padding: 14px 12px 14px 18px;
+
+  box-sizing: border-box;
+  font-family: 'Inter';
+  font-weight: 500;
+
+  /* Stroke */
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 9px;
+
+}
+
+.prev-button {
+  /* Buttons */
+  position: absolute;
+  width: 107px;
+  height: 52px;
+  left: 1450px;
+  top: 750px;
+
+  /* Автолейаут */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4;
+  padding: 14px 18px 14px 12px;
+
+  box-sizing: border-box;
+  font-family: 'Inter';
+  font-weight: 500;
+
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 9px;
+  
+}
+
+.prev-next-button-active {
+  background: rgb(255, 255, 255);
+  color: #5D5FEF;
+
+}
+
+.prev-next-button-inactive {
+  background: rgb(241, 242, 244);
+  color: #B4BFCD;
+}
+
+.prev-next-button-active:hover {
+  background: #F5F5F5;
+}
+
+
+
+.arrow-left {
+  width: 16px; /* Adjust the width and height to fit your SVG icon */
+  height: 16px;
+  margin-right: 8px; /* Add some space between the icon and the text */
+}
+
+.arrow-right {
+  width: 16px; /* Adjust the width and height to fit your SVG icon */
+  height: 16px;
+  margin-right: 8px; /* Add some space between the icon and the text */
+}
+
+
+
