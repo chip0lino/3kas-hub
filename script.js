@@ -177,23 +177,22 @@ function showData(jsonData) {
       tbody.innerHTML = ''; // Clear the table body
 
       jsonData.forEach((row, number) => {
-        if (number >= (pageNumber - 1) * itemsOnPage && number < pageNumber * itemsOnPage){
+        if (number >= (pageNumber - 1) * itemsOnPage && number < pageNumber * itemsOnPage) {
           const tableRow = document.createElement('tr');
 
           let columnIndex = 0; // Define columnIndex here
 
           Object.keys(row).forEach((key) => {
             const tableCell = document.createElement('td');
-            let data = row[key]
+            let data = row[key];
             tableCell.innerHTML = data;
             if (columnIndex === 0) { // Add the class 'number' only to the first column
               tableCell.classList.add('number');
             }
             tableRow.appendChild(tableCell);
             columnIndex++; // Increment the column index
-          })
+          });
 
-          
           // добавляем кнопку удаления сотрудника в виде иконки
           if (window.location.pathname.includes('adminpanel.html')) {
             // код, который добавляет иконки
@@ -210,8 +209,17 @@ function showData(jsonData) {
             editButton.alt = 'Редактировать';
             editButton.style.marginRight = '15px'; // add 15px margin to the right
 
-            editButton.onclick = () => editEmployee(id); // add an onclick event to the edit button
+            editButton.onclick = function() {
+              openEditEmployeeWindow(row); // передаем данные сотрудника
+              console.log(row); // добавьте консольный лог здесь
+            };
 
+            deleteButton.style.cursor = 'pointer';
+            editButton.style.cursor = 'pointer';
+
+            deleteButtonWrapper.appendChild(editButton);
+            deleteButton.src = 'assets/delete.svg';
+            deleteButton.alt = 'Удалить';
             deleteButton.onclick = function() {
               const row = this.parentNode.parentNode;
               const id = row.cells[0].textContent.trim().replace('#', ''); // получить ID сотрудника
@@ -228,14 +236,7 @@ function showData(jsonData) {
               }
             };
 
-            deleteButton.style.cursor = 'pointer';
-
-            deleteButtonWrapper.appendChild(editButton);
-            deleteButton.src = 'assets/delete.svg';
-            deleteButton.alt = 'Удалить';
-            deleteButton.onclick = () => deleteEmployee(number);
             deleteButtonWrapper.appendChild(deleteButton);
-
             lastCell.appendChild(deleteButtonWrapper);
           }
 
