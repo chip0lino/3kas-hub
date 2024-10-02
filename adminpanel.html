@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styleadmin.css">
     <link rel="stylesheet" type="text/css" href="styleAddNewEmp.css">
+    <link rel="stylesheet" type="text/css" href="styleEditNewEmp.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap">
     <script src="script.js"></script>
     <script src="init.js"></script>
@@ -19,10 +20,10 @@
     </div>
 
     <div class="central-menu">
-      <a href="/calendar.html" id="calendar">Календарь</a>
-      <a href="/index.html" id="implementers">Сотрудники</a>
-      <a href="/docs.html" id="docs">Документы</a>
-      <a href="/chast.html" id="chats">Сообщения</a>
+      <a href="calendar.html" id="calendar">Календарь</a>
+      <a href="index.html" id="implementers">Сотрудники</a>
+      <a href="docs.html" id="docs">Документы</a>
+      <a href="chast.html" id="chats">Сообщения</a>
     </div>
 
     <div class="user-profile">
@@ -96,51 +97,102 @@
 
   <div id="overlay" style="display: none;"></div>
 
+  <!--- Добавление сотрудника-->
   <div id="add-employee-window" style="display: none;">
+    <div class="close-button" onclick="closeAddEmployeeWindow()" style="margin-top: 30px; margin-right: 30px;">×</div>
     <div class="add-employee-container">
-      <div class="close-button" onclick="closeAddEmployeeWindow()">×</div>
-      <h2 style="text-align: center; margin-bottom: 10px;">Добавить сотрудника</h2>
+      <h2 style="text-align: center; margin-bottom: 6px;">Добавить сотрудника</h2>
       <form>
-
-        <label for="full-name" style="margin-left: 10px; margin-bottom: 5px;">Фамилия Имя Отчество:<span style="color: #FF0000;">*</span></label>
-        <input type="text" id="full-name" name="full-name" style="width: 80%; margin-left: 10px; margin-bottom: 10px;" placeholder="Введите ФИО" required>
+  
+        <label for="full-name" style="margin-left: -110px; margin-bottom: 3px;">Фамилия Имя Отчество<span style="color: #FF0000;">*</span></label>
+        <input type="text" id="full-name" name="full-name" style="width: 127%; margin-left: -110px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите ФИО" required>
         
-        <div class="input-group" style="margin-bottom: 10px; text-align: center;">
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="phone" style="margin-bottom: 5px;">Телефон:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="phone" name="phone" style="width: 250px; margin-bottom: 10px;" placeholder="Введите телефон" required>
+        <div class="input-group" style="margin-bottom: 6px; text-align: center; margin-left: -140px; margin-top: 10px;">
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="phone" style="margin-bottom: 3px;">Телефон<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="phone" name="phone" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите телефон" required>
           </div>
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="external-number" style="margin-bottom: 5px;">Внешний номер:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="external-number" name="external-number" style="width: 250px; margin-bottom: 10px;" placeholder="Введите внешний номер" required>
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="external-number" style="margin-bottom: 3px;">Внешний номер<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="external-number" name="external-number" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите внешний номер" required>
           </div>
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="vts-number" style="margin-bottom: 5px;">Номер ВТС:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="vts-number" name="vts-number" style="width: 250px; margin-bottom: 10px;" placeholder="Введите номер ВТС" required>
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="vts-number" style="margin-bottom: 3px;">Номер ВТС<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="vts-number" name="vts-number" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите номер ВТС" required>
           </div>
         </div>
         
-        <div class="input-group" style="margin-bottom: 10px; text-align: center;">
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="position" style="margin-bottom: 5px;">Должность:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="position" name="position" style="width: 250px; margin-bottom: 10px;" placeholder="Введите должность" required>
+        <div class="input-group" style="margin-bottom: 6px; text-align: center; margin-left: -140px; margin-top: 10px;">
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="position" style="margin-bottom: 3px;">Должность<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="position" name="position" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите должность" required>
           </div>
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="department" style="margin-bottom: 5px;">Отдел:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="department" name="department" style="width: 250px; margin-bottom: 10px;" placeholder="Введите отдел" required>
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="department" style="margin-bottom: 3px;">Отдел<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="department" name="department" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите отдел" required>
           </div>
-          <div class="input-column" style="display: inline-block; margin: 0 10px; margin-left: 10px;">
-            <label for="cabinet" style="margin-bottom: 5px;">Кабинет:<span style="color: #FF0000;">*</span></label>
-            <input type="text" id="cabinet" name="cabinet" style="width: 250px; margin-bottom: 10px;" placeholder="Введите кабинет" required>
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="cabinet" style="margin-bottom: 3px;">Кабинет<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="cabinet" name="cabinet" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите кабинет" required>
           </div>
         </div>
-
-        <div class="button-group" style="margin: 20px auto; text-align: center;">
+  
+        <div class="button-group" style="margin: 10px auto; text-align: center;">
           <button id="add-btn" onclick="validateInputs(event)">Добавить</button>
           <button id="cancel-btn" onclick="closeAddEmployeeWindow()">Отмена</button>
-          <div id="error-message" style="color: #FF0000; display: none;">Заполните все необходимые поля!</div>
+          <div id="error-message" style="color: #FF0000; display: none; margin-left: 16px; margin-top: 12px;">Заполните все необходимые поля!</div>
         </div>
+  
+      </form>
+    </div>
+  </div>
 
+  <!--- Редактирование сотрудника-->
+  <div id="edit-employee-window" style="display: none;">
+    <div class="close-button" onclick="closeEditEmployeeWindow()" style="margin-top: 30px; margin-right: 30px;">×</div>
+    <div class="edit-employee-container">
+      <h2 style="text-align: center; margin-bottom: 6px;">Редактировать сотрудника</h2>
+      <form>
+  
+        <label for="full-name" style="margin-left: -110px; margin-bottom: 3px;">Фамилия Имя Отчество<span style="color: #FF0000;">*</span></label>
+        <input type="text" id="full-name" name="full-name" style="width: 127%; margin-left: -110px; margin-bottom: 6px; margin-top: 4px;">
+        
+        <div class="edit-input-group" style="margin-bottom: 6px; text-align: center; margin-left: -140px; margin-top: 10px;">
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="phone" style="margin-bottom: 3px;">Телефон<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="phone" name="phone" style="width: 250px; margin-bottom: 6px; margin-top: 4px;">
+          </div>
+          <div class="edit-input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="external-number" style="margin-bottom: 3px;">Внешний номер<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="external-number" name="external-number" style="width: 250px; margin-bottom: 6px; margin-top: 4px;">
+          </div>
+          <div class="edit-input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="vts-number" style="margin-bottom: 3px;">Номер ВТС<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="vts-number" name="vts-number" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите номер ВТС">
+          </div>
+        </div>
+        
+        <div class="edit-input-group" style="margin-bottom: 6px; text-align: center; margin-left: -140px; margin-top: 10px;">
+          <div class="input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="position" style="margin-bottom: 3px;">Должность<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="position" name="position" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите должность">
+          </div>
+          <div class="edit-input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="department" style="margin-bottom: 3px;">Отдел<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="department" name="department" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите отдел">
+          </div>
+          <div class="edit-input-column" style="display: inline-block; margin: 0 10px;">
+            <label for="cabinet" style="margin-bottom: 3px;">Кабинет<span style="color: #FF0000;">*</span></label>
+            <input type="text" id="cabinet" name="cabinet" style="width: 250px; margin-bottom: 6px; margin-top: 4px;" placeholder="Введите кабинет">
+          </div>
+        </div>
+  
+        <div class="button-group" style="margin: 10px auto; text-align: center;">
+          <button id="save-btn" onclick="updateEmployeeData()">Сохранить</button>
+          <button id="cancel-btn" onclick="closeEditEmployeeWindow()">Отмена</button>
+          <div id="error-message" style="color: #FF0000; display: none; margin-left: 16px; margin-top: 12px;">Заполните все необходимые поля!</div>
+        </div>
+  
       </form>
     </div>
   </div>
