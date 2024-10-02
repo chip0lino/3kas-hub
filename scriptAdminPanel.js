@@ -1,3 +1,4 @@
+// логин
 function openLoginWindow() {
   document.getElementById("login-window").style.display = "block";
   document.body.style.overflow = "hidden";
@@ -10,6 +11,7 @@ function closeLoginWindow() {
   document.body.style.backgroundColor = "";
 }
 
+// добавить сотрудника
 function openAddEmployeeWindow() {
   document.getElementById("add-employee-window").style.display = "block";
   document.getElementById("overlay").style.display = "block";
@@ -20,6 +22,71 @@ function closeAddEmployeeWindow() {
   document.getElementById("add-employee-window").style.display = "none";
   document.getElementById("overlay").style.display = "none";
   document.body.style.overflow = "auto";
+}
+
+// редактировать сотрудника
+function openEditEmployeeWindow(employeeData) {
+  console.log(employeeData);
+  Object.keys(employeeData).forEach(key => {
+    console.log(key, employeeData[key]);
+    if (key === 'Сотрудник') {
+      document.getElementById('full-name').value = employeeData[key];
+      console.log('full-name:', document.getElementById('full-name').value);
+    } else if (key === 'Телефон') {
+      document.getElementById('phone').value = employeeData[key].replace('#', '');
+      console.log('phone:', document.getElementById('phone').value);
+    } else if (key === 'Внешний номер') {
+      document.getElementById('external-number').value = employeeData[key];
+      console.log('external-number:', document.getElementById('external-number').value);
+    } else if (key === 'Номер ВТС') {
+      document.getElementById('vts-number').value = employeeData[key];
+      console.log('vts-number:', document.getElementById('vts-number').value);
+    } else if (key === 'Должность') {
+      document.getElementById('position').value = employeeData[key];
+      console.log('position:', document.getElementById('position').value);
+    } else if (key === 'Отдел') {
+      document.getElementById('department').value = employeeData[key];
+      console.log('department:', document.getElementById('department').value);
+    } else if (key === 'Кабинет') {
+      document.getElementById('cabinet').value = employeeData[key];
+      console.log('cabinet:', document.getElementById('cabinet').value);
+    }
+  });
+  document.getElementById("edit-employee-window").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeEditEmployeeWindow() {
+  document.getElementById("edit-employee-window").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function updateEmployeeData() {
+  const employeeData = {
+    oldId: document.getElementById('phone').value,
+    newData: {
+      "Телефон": document.getElementById('phone').value,
+      "Внешний номер": document.getElementById('external-number').value,
+      "Номер ВТС": document.getElementById('vts-number').value,
+      "Сотрудник": document.getElementById('full-name').value,
+      "Должность": document.getElementById('position').value,
+      "Отдел": document.getElementById('department').value,
+      "Кабинет": document.getElementById('cabinet').value
+    }
+  };
+
+  fetch('/update', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(employeeData)
+  })
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 }
 
 function addEmployee() {
@@ -97,7 +164,6 @@ function validateInputs(event) {
   }
 }
 
-// функция для удаления сотрудника
 function deleteEmployee(id) {
   fetch(`http://localhost:3000/delete/${id}`, {
     method: 'DELETE'
