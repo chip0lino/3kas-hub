@@ -155,7 +155,7 @@ function validateInputs(event) {
         input.style.border = ''; // remove the red border if the input field has a valid value
       }
     } else if (input.id === 'external-number') {
-      const pattern = /^\d{3}-\d{3}-\d{2}$/; // allow numbers in the format XXX-XXX-XX
+      const pattern = /^\d{3}-\d{2}-\d{2}$/; // allow numbers in the format XXX-XXX-XX
       if (!input.value.trim() || !pattern.test(input.value.trim())) { 
         isValid = false; // set isValid to false if we find an input field with no valid value
         input.style.border = '1px solid #FF0000'; // add a red border to the input field
